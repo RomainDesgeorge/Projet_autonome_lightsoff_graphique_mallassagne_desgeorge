@@ -17,6 +17,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
      */
     public fenetreDeJeu() {
         initComponents();
+        placerlumiere();
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
                 Cellulegraph cellgraph = new Cellulegraph(plateau.grille[j][i]);
@@ -24,11 +25,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                     public void actionPerformed(java.awt.event.ActionEvent evt) {
                         Cellule c = cellgraph.celluleassociee;
                         if (plateau.etregagnant()==false){
-                            
+                            if(c.lumi.lumiere==false){
+                                c.lumi.lumiere=true;
+                            }
+                            if(c.lumi.lumiere==true){
+                                c.lumi.lumiere=false;
+                            }                                                     
                         }
-                        }
+                        
+                    }
                 });
                 jPanel3.add(cellgraph);
+                jPanel3.repaint();
             }
         }
     }
@@ -101,6 +109,36 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 new fenetreDeJeu().setVisible(true);
             }
         });
+    }
+        public void placerlumiere(){
+        int a =0;
+        int u=0;
+        while (a==0){
+        a =(int) (Math.random() * (26));
+        
+        /**
+         * while(a!=0){
+            for (int i=0;i<5;i++){
+                for (int j=0;j<5;j++){
+                    if(plateau.Luminosite(i, j) == false){
+                        
+                    }
+                }
+                
+            }
+            * */
+        while (u<a){
+            int x ;
+            x= (int) (Math.random() * (5));
+            int y = (int) (Math.random() * (5));
+            if(plateau.Luminosite(x, y) == false){
+                plateau.Changementlumiere(x, y);
+                u+=1;
+            }
+        }
+        
+        
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
