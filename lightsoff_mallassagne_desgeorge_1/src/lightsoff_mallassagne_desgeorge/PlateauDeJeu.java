@@ -12,7 +12,7 @@ public class PlateauDeJeu {
     public PlateauDeJeu(){
         for (int i=0;i<5;i++){
             for (int j=0;j<5;j++){
-                grille[i][j] = new Cellule();
+                grille[i][j] = new Cellule(i,j);
             }
         }
     }
@@ -45,6 +45,19 @@ public class PlateauDeJeu {
     
     public void Changementlumiere(int x, int y){
         grille[x][y].Changementlumiere();
+        if (x!=0){
+            grille[x-1][y].Changementlumiere();
+        }
+        if (x!=4){
+            grille[x+1][y].Changementlumiere();
+        }
+        if (y!=0){
+            grille[x][y-1].Changementlumiere();
+        }
+        if (y!=4){
+            grille[x][y+1].Changementlumiere();
+        }
+        
     }
     
     public void affichergrille(){

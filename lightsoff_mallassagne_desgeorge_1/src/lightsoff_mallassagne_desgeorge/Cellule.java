@@ -10,8 +10,12 @@ package lightsoff_mallassagne_desgeorge;
  * @author rom
  */
 public class Cellule {
-    public Cellule(){
+    int x;
+    int y;
+    public Cellule(int a,int b){
         lumi = lumi;
+        x=a;
+        y=b;
     }
     Lampe lumi = new Lampe();
     

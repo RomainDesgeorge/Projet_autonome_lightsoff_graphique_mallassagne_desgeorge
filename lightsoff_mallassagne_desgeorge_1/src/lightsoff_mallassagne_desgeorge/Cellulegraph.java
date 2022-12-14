@@ -31,7 +31,5 @@ public class Cellulegraph extends JButton{
 
     }
 
-    public void addActionListener(ActionListener actionListener) {
-       
-    }
+  
 }
