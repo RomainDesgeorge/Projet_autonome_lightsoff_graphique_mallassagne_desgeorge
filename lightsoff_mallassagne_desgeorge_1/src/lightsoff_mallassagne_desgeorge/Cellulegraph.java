@@ -17,8 +17,8 @@ public class Cellulegraph extends JButton{
     Cellule celluleassociee;
     ImageIcon img_vide = new javax.swing.ImageIcon(getClass().getResource("/images/celluleVide.png"));
     ImageIcon img_jetonJaune = new javax.swing.ImageIcon(getClass().getResource("/images/jetonJaune.png"));
-    public Cellulegraph(){
-       
+    public Cellulegraph(Cellule uneCellule){
+        celluleassociee = uneCellule;
     }
     public void paintComponent (Graphics G){
         super.paintComponent(G);
