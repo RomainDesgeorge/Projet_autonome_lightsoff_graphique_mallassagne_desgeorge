@@ -21,4 +21,7 @@ public class Lampe {
             lumiere = false;
         }
     }
+    public void eteindre(){
+        lumiere = false;
+    }
 }

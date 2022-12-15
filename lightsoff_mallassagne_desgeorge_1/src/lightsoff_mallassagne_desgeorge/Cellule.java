@@ -29,4 +29,8 @@ public class Cellule {
     public void Changementlumiere(){
         lumi.changementlumiere();
     }
+    
+    public void eteindrelumiere(){
+        lumi.eteindre();
+    }
 }
