@@ -10,14 +10,14 @@ import java.util.ArrayList;
  *
  * @author rom
  */
-public class Joueur {
-    int nbpieces;
-    int nbcoups;
+public class Joueur { 
+    int nbpieces=500;
+    int nbcoups; 
     ArrayList <String> Bonus = new ArrayList<>();
-    int nbbonus_unecase;
-    int nbbonus_uneligne;
-    int nbbonus_unecolonne;
-    int nbbonus_toutecase;
+    int nbbonus_unecase=0;
+    int nbbonus_uneligne=0;
+    int nbbonus_unecolonne=0;
+    int nbbonus_toutecase=0;
     
     public void obtenirnbbonus_unecase(){
         nbbonus_unecase +=1;
