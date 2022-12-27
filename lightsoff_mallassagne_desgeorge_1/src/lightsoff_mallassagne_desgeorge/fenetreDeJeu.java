@@ -15,6 +15,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private Cellulegraph [][] tabl = new Cellulegraph[5][5];
     private int clic = 0;
     private int Score = 5000;
+    private boolean bon1 = false;
+    private boolean bon2 = false;
+    private boolean bon3 = false;
+    private boolean bon4 = false;
     
     /**
      * Creates new form fenetreDeJeu
@@ -22,7 +26,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     public fenetreDeJeu() {
         initComponents();
         placerlumiere();
- 
+        if (joueurCourant.nbbonus_unecase ==0){
+            jButton3.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_toutecase ==0){
+            jButton4.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_uneligne ==0){
+            jButton5.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_unecolonne ==0){
+            jButton6.setEnabled(false);
+        }  
         
         for (int i = 4; i >= 0; i--) {
             for (int j = 0; j < 5; j++) {
@@ -40,16 +55,77 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                        
                                                 
                         if (plateau.etregagnant()==false){
+                            if(bon1==false){
                             plateau.Changementlumiere(c.x,c.y);
-                            
-                            /*if(c.lumi.lumiere==false){
-                                c.lumi.lumiere=true;
                             }
-                            else {
-                                c.lumi.lumiere=false;
-                            } */ 
+                            if(bon1==true){
+                                plateau.Changementlumiere1(c.x,c.y);
+                                bon1 = false;
+                                if (joueurCourant.nbbonus_unecase !=0){
+                                    jButton3.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_toutecase !=0){
+                                    jButton4.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_uneligne !=0){
+                                    jButton5.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_unecolonne !=0){
+                                    jButton6.setEnabled(true);
+                                }                                  
+                            }
+                            if(bon2==true){
+                                plateau.Changementlumiere1(c.x,c.y);
+                                bon1 = false;
+                                if (joueurCourant.nbbonus_unecase !=0){
+                                    jButton3.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_toutecase !=0){
+                                    jButton4.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_uneligne !=0){
+                                    jButton5.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_unecolonne !=0){
+                                    jButton6.setEnabled(true);
+                                }                                  
+                            }
+                            if(bon3==true){
+                                plateau.Changementlumiere1(c.x,c.y);
+                                bon1 = false;
+                                if (joueurCourant.nbbonus_unecase !=0){
+                                    jButton3.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_toutecase !=0){
+                                    jButton4.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_uneligne !=0){
+                                    jButton5.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_unecolonne !=0){
+                                    jButton6.setEnabled(true);
+                                }                                  
+                            }
+                            if(bon4==true){
+                                plateau.Changementlumiere1(c.x,c.y);
+                                bon1 = false;
+                                if (joueurCourant.nbbonus_unecase !=0){
+                                    jButton3.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_toutecase !=0){
+                                    jButton4.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_uneligne !=0){
+                                    jButton5.setEnabled(true);
+                                }
+                                if (joueurCourant.nbbonus_unecolonne !=0){
+                                    jButton6.setEnabled(true);
+                                }                                  
+                            }                            
                             jPanel3.repaint();
+                        
                         }
+                        
                         
                     }
                 });
@@ -95,6 +171,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         nouvellepartie = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,6 +281,34 @@ public class fenetreDeJeu extends javax.swing.JFrame {
 
         jLabel9.setText("250 pièces");
 
+        jButton3.setText("jouerbon1");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("jouerbon2");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("jouerbon3");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("jouerbon4");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -232,32 +340,37 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(nbbonuscolonne)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jButton6)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nbbonus1case)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(nbbonuscolonne))
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(nbpieces))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel2)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(nbbonus1case))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(nbbonustoutecase))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(nbbonusligne)))
-                                        .addGap(0, 12, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nbpieces)
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(nbbonusligne)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton5))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nbbonustoutecase)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton4)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -285,19 +398,23 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(nbbonus1case))
+                    .addComponent(nbbonus1case)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(nbbonustoutecase))
+                    .addComponent(nbbonustoutecase)
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(nbbonusligne))
+                    .addComponent(nbbonusligne)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(nbbonuscolonne))
+                    .addComponent(nbbonuscolonne)
+                    .addComponent(jButton6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -327,7 +444,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addComponent(nouvellepartie)))
-                .addGap(0, 62, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +460,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
@@ -365,7 +482,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.nbpieces - 150 < 0){
             jButton1.setEnabled(false);
             jButton2.setEnabled(false);
-        } 
+        }
+        jButton3.setEnabled(true);
+        
     }//GEN-LAST:event_achat1caseActionPerformed
 
     private void achattoutecaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_achattoutecaseActionPerformed
@@ -385,7 +504,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.nbpieces - 150 < 0){
             jButton1.setEnabled(false);
             jButton2.setEnabled(false);
-        }         
+        }  
+        jButton4.setEnabled(true);
+     
     }//GEN-LAST:event_achattoutecaseActionPerformed
 
     private void nouvellepartieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nouvellepartieActionPerformed
@@ -399,6 +520,18 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jButton1.setEnabled(true);
         jButton2.setEnabled(true);
         jPanel3.repaint();
+        if (joueurCourant.nbbonus_unecase ==0){
+            jButton3.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_toutecase ==0){
+            jButton4.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_uneligne ==0){
+            jButton5.setEnabled(false);
+        }
+        if (joueurCourant.nbbonus_unecolonne ==0){
+            jButton6.setEnabled(false);
+        }          
     }//GEN-LAST:event_nouvellepartieActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -418,7 +551,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         if (joueurCourant.nbpieces - 150 < 0){
             jButton1.setEnabled(false);
             jButton2.setEnabled(false);
-        }         
+        } 
+        jButton5.setEnabled(true);
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -438,8 +573,51 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             if (joueurCourant.nbpieces - 150 < 0){
                 jButton1.setEnabled(false);
                 jButton2.setEnabled(false);
-            }             
+            }
+            jButton6.setEnabled(true);
+
+            
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        bon1 = true;
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton5.setEnabled(false);
+        joueurCourant.nbbonus_unecase -=1;
+        nbbonus1case.setText(joueurCourant.nbbonus_unecase+"");        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        bon2 = true;
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton5.setEnabled(false);
+        joueurCourant.nbbonus_toutecase -=1;
+        nbbonustoutecase.setText(joueurCourant.nbbonus_toutecase+"");                      
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        bon3 = true;
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton5.setEnabled(false);
+        joueurCourant.nbbonus_uneligne -=1;
+        nbbonusligne.setText(joueurCourant.nbbonus_uneligne+"");        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        bon4 = true;
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        jButton5.setEnabled(false);
+        jButton5.setEnabled(false);
+        joueurCourant.nbbonus_unecolonne -=1;
+        nbbonuscolonne.setText(joueurCourant.nbbonus_unecolonne+""); 
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -512,6 +690,10 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel clicss;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
