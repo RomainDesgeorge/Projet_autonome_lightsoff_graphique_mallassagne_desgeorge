@@ -75,8 +75,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }                                  
                             }
                             if(bon2==true){
-                                plateau.Changementlumiere1(c.x,c.y);
-                                bon1 = false;
+                                plateau.Changementlumiere2();
+                                bon2 = false;
                                 if (joueurCourant.nbbonus_unecase !=0){
                                     jButton3.setEnabled(true);
                                 }
@@ -91,8 +91,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }                                  
                             }
                             if(bon3==true){
-                                plateau.Changementlumiere1(c.x,c.y);
-                                bon1 = false;
+                                plateau.Changementlumiere3(c.x);
+                                bon3 = false;
                                 if (joueurCourant.nbbonus_unecase !=0){
                                     jButton3.setEnabled(true);
                                 }
@@ -107,8 +107,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }                                  
                             }
                             if(bon4==true){
-                                plateau.Changementlumiere1(c.x,c.y);
-                                bon1 = false;
+                                plateau.Changementlumiere4(c.y);
+                                bon4 = false;
                                 if (joueurCourant.nbbonus_unecase !=0){
                                     jButton3.setEnabled(true);
                                 }

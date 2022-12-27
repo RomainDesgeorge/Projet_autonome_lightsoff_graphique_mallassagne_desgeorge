@@ -63,6 +63,25 @@ public class PlateauDeJeu {
     public void Changementlumiere1(int x, int y){
         grille[x][y].Changementlumiere();        
     }
+    public void Changementlumiere2(){
+        for(int i=0; i<5;i++){
+            for(int y=0; y<5;y++){
+                grille[i][y].Changementlumiere();
+            }
+        }       
+    } 
+    
+    public void Changementlumiere3(int x){
+        for (int y=0;y<5;y++){
+        grille[x][y].Changementlumiere(); 
+        }
+    }
+    public void Changementlumiere4(int x){
+        for (int y=0;y<5;y++){
+        grille[y][x].Changementlumiere();  
+        }
+    }    
+    
     
     public void affichergrille(){
         for (int i=4;i>-1;i--){
