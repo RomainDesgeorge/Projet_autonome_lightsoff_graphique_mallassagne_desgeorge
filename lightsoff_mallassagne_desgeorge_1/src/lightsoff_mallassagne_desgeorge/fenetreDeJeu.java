@@ -56,7 +56,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                                 
                         if (plateau.etregagnant()==false){
                             if(bon1==false){
+                            if(bon2==false){
+                            if(bon3==false){
+                            if(bon4==false){    
                             plateau.Changementlumiere(c.x,c.y);
+                            }
+                            }
+                            }
                             }
                             if(bon1==true){
                                 plateau.Changementlumiere1(c.x,c.y);
@@ -91,7 +97,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }                                  
                             }
                             if(bon3==true){
-                                plateau.Changementlumiere3(c.x);
+                                plateau.Changementlumiere3(c.y);
                                 bon3 = false;
                                 if (joueurCourant.nbbonus_unecase !=0){
                                     jButton3.setEnabled(true);
@@ -107,7 +113,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
                                 }                                  
                             }
                             if(bon4==true){
-                                plateau.Changementlumiere4(c.y);
+                                plateau.Changementlumiere4(c.x);
                                 bon4 = false;
                                 if (joueurCourant.nbbonus_unecase !=0){
                                     jButton3.setEnabled(true);
@@ -520,6 +526,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jButton1.setEnabled(true);
         jButton2.setEnabled(true);
         jPanel3.repaint();
+        nbbonus1case.setText(joueurCourant.nbbonus_unecase+"");
+        nbbonustoutecase.setText(joueurCourant.nbbonus_toutecase+"");
+        nbbonuscolonne.setText(joueurCourant.nbbonus_unecolonne+"");
+        nbbonusligne.setText(joueurCourant.nbbonus_uneligne+"");
+        nbpieces.setText(joueurCourant.nbpieces+"");
         if (joueurCourant.nbbonus_unecase ==0){
             jButton3.setEnabled(false);
         }
@@ -614,7 +625,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jButton3.setEnabled(false);
         jButton4.setEnabled(false);
         jButton5.setEnabled(false);
-        jButton5.setEnabled(false);
+        jButton6.setEnabled(false);
         joueurCourant.nbbonus_unecolonne -=1;
         nbbonuscolonne.setText(joueurCourant.nbbonus_unecolonne+""); 
     }//GEN-LAST:event_jButton6ActionPerformed

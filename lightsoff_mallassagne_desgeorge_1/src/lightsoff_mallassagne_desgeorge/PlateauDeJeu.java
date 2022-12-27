@@ -73,12 +73,12 @@ public class PlateauDeJeu {
     
     public void Changementlumiere3(int x){
         for (int y=0;y<5;y++){
-        grille[x][y].Changementlumiere(); 
+            grille[y][x].Changementlumiere(); 
         }
     }
     public void Changementlumiere4(int x){
         for (int y=0;y<5;y++){
-        grille[y][x].Changementlumiere();  
+            grille[x][y].Changementlumiere();  
         }
     }    
     
